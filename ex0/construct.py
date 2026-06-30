@@ -16,9 +16,15 @@ Vocabluary:
 sys.executable   -> the Python binary currently running
 sys.prefix       -> the active environment root
 sys.base_prefix  -> the original/base Python install
-site-packages    -> package install location derived from the active environment
+site-packages    -> package install location derived from
+                    the active environment
 os.path.basename -> to extract the final part of a file path
+
+python.exe is the worker doing the job.
+package is the toolbox for the worker.
 """
+
+
 def display_outside_venv() -> None:
     print("\nMATRIX STATUS: You're still plugged in.\n")
     print("Current Python:", sys.executable)
@@ -43,8 +49,13 @@ def display_inside_venv() -> None:
 
 
 def construct() -> None:
-    if hasattr(sys, 'real_prefix') or (hasattr(sys, 'base_prefix')
-    and sys.base_prefix != sys.prefix):
+    if (
+        hasattr(sys, 'real_prefix')
+        or (
+            hasattr(sys, 'base_prefix')
+            and sys.base_prefix != sys.prefix
+        )
+    ):
         display_inside_venv()
     else:
         display_outside_venv()
