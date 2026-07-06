@@ -119,7 +119,7 @@ def show_missing_config(missing: list[str]) -> None:
     print("\nMissing configuration:")
     for name in missing:
         print(f"- {name} is not set")
-    print("\n Create a local .env file from the example:")
+    print("\nCreate a local .env file from the example:")
     print("cp .env.example .env\n")
     print("Then edit .env with your local values")
 
@@ -171,7 +171,7 @@ def main() -> int:
     show_configuration(config)
     show_missing_config(missing)
     show_security_check(config, original_environment)
-    print("The Oracle sees all configurations.")
+    print("\nThe Oracle sees all configurations.")
     if missing:
         return 1
     return 0
